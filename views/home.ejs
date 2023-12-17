@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Link to the CSS files for styling -->
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+    <title><%=forumData.forumName%> home page</title>
+    <script>
+      function createDiscussion() {
+        // Get selected option - existing topics
+        var categoryOption = document.getElementById("categoryOption").value;
+        // Get discussion input value
+        var discussionInput = document.getElementById("discussionInput").value;
+
+        if (categoryOption === "existingCategory") {
+          // Get selected topic title
+          var selectedTopic =
+            document.getElementById("categoryOption").options[
+              document.getElementById("categoryOption").selectedIndex
+            ].text;
+
+          // Create new discussion element
+          var discussionElement = document.createElement("div");
+          discussionElement.className = "discussion";
+          discussionElement.innerHTML =
+            "<strong>" + selectedTopic + "</strong>: " + discussionInput;
+
+          // Append discussion element to posts div
+          document.querySelector(".posts").appendChild(discussionElement);
+        }
+
+        // Clear input fields
+        document.getElementById("discussionInput").value = "";
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">ChatHaven</div>
+        <div class="nav-search">
+          <!-- <input type="text" placeholder="Search topic" name="nav-search" /> -->
+        </div>
+        <ul class="nav-links">
+          <li><a href="/home">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/users">Users</a></li>
+          <li><a href="/topics">Topics</a></li>
+        </ul>
+        <button class="logout-button">
+          <a href="/">Log out</a>
+        </button>
+      </nav>
+    </header>
+    <div class="forum">
+      <div class="question-box">
+        <label for="categoryOption">Select Topic:</label>
+        <select id="categoryOption">
+          <!-- list existing topics -->
+          <% for(let i = 0; i < forumData.topic.length; i++) { %>
+          <option value="existingCategory">
+            <%= forumData.topic[i].name %>
+          </option>
+          <% } %>
+          <!-- <option value="newCategory">Create New Category</option> -->
+        </select>
+        <input type="text" id="discussionInput" placeholder="Discussion" />
+        <button onclick="createDiscussion()">Create Discussion</button>
+      </div>
+      <div class="posts"></div>
+    </div>
+  </body>
+</html>

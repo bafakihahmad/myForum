@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Link to the CSS files for styling -->
+    <link rel="stylesheet" href="/stylesheets/register.css" />
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+    <title>about <%=forumName%></title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">ChatHaven</div>
+        <div class="nav-search"></div>
+        <ul class="nav-links">
+          <!-- Navigation links for different pages -->
+          <li><a href="/home">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/users">Users</a></li>
+          <li><a href="/topics">Topics</a></li>
+        </ul>
+        <!-- Logout button with link to home page -->
+        <button class="logout-button">
+          <a href="/">Log out</a>
+        </button>
+      </nav>
+    </header>
+    <!-- Container with inline CSS for margin -->
+    <div class="container" style="margin: 0 20%">
+      <div class="box">
+        <div class="title">
+          <h1>About <%=forumName%></h1>
+          <h3>
+            Welcome to ChatHaven, your one-stop shop for in-depth discussions,
+            lively discussions, and a community that thrives on common
+            interests. ChatHaven is more than simply a forum; it's a place where
+            ideas may grow, friendships can blossom, and knowledge can be
+            exchanged.
+          </h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

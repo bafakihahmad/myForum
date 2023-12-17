@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Link to the CSS files for styling -->
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+    <title><%= forumData.forumName %></title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">ChatHaven</div>
+        <div class="nav-search">
+          <!-- <input type="text" placeholder="Search topic" name="nav-search" /> -->
+        </div>
+        <ul class="nav-links">
+          <li><a href="/home">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/users">Users</a></li>
+          <li><a href="/topics">Topics</a></li>
+        </ul>
+        <!-- logout button that links to home page -->
+        <button class="logout-button">
+          <a href="/">Log out</a>
+        </button>
+      </nav>
+    </header>
+    <div class="existingTopics-Users">
+      <h2>Existing Topics</h2>
+      <!-- Unordered list to display users -->
+      <ul>
+        <!-- Loop through the topics data from forumData -->
+        <% for (let i = 0; i < forumData.topics.length; i++) { %>
+        <!-- Displaying topic name -->
+        <li><%= forumData.topics[i].name %></li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>
